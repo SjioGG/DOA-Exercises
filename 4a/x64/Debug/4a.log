@@ -1,5 +1,0 @@
-﻿  MaxHeap.cpp
-C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\Exercises & Projects\4a\MaxHeap.cpp(21,20): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
-  main.cpp
-  Generating Code...
-  4a.vcxproj -> C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\Exercises & Projects\4a\x64\Debug\4a.exe

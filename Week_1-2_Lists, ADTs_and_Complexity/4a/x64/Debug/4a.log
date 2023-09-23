@@ -1,0 +1,7 @@
+﻿  main.cpp
+  MaxHeap.cpp
+C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_1-2_\4a\MaxHeap.cpp(21,22): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_1-2_\4a\MaxHeap.cpp(48,25): error C2039: 'max_element': is not a member of 'std'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\include\iostream(19,1): message : see declaration of 'std'
+C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_1-2_\4a\MaxHeap.cpp(48,36): error C3861: 'max_element': identifier not found
+  Generating Code...
