@@ -1,0 +1,5 @@
+﻿  Main.cpp
+  MaxHeapVector.cpp
+C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\Exercises & Projects\Opgave4aAbstract\MaxHeapVector.cpp(20,17): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  Generating Code...
+  Opgave4aAbstract.vcxproj -> C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\Exercises & Projects\Opgave4aAbstract\x64\Debug\Opgave4aAbstract.exe
