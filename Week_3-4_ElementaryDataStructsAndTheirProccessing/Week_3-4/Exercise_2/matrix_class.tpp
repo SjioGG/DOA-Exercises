@@ -15,6 +15,19 @@ void Matrix<Object>::add(Matrix& mat) {
 }
 
 template <typename Object>
+void Matrix<Object>::transpose() {
+	int rows = numcols();
+	int cols = numrows();
+
+	for (int i = 0; i < rows; ++i) {
+		for (int j = 0; j < cols; ++j){
+			array[i][j] = array[j][i];
+			swap(cols, rows);
+		}
+	}
+}
+
+template <typename Object>
 Matrix<Object>& multiply(Matrix<Object>& a, Matrix<Object>& b) {
 	if (a.numcols() != b.numrows()) {
 		throw invalid_argument{"Matrix has incompatible dimensions"};

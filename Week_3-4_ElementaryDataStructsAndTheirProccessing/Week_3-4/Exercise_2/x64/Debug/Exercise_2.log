@@ -1,5 +1,4 @@
-﻿  init_list.cpp
-  test_matrix.cpp
+﻿  test_matrix.cpp
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\test_matrix.cpp(13,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\matrix_class.h(30,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\matrix_class.h(28,1): message : while compiling class template member function 'int Matrix<double>::numcols(void) const'
@@ -8,6 +7,4 @@ C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\matrix_class.h(26,1): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\matrix_class.h(26,1): message : while compiling class template member function 'int Matrix<double>::numrows(void) const'
 C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\Exercise_2\matrix_class.h(50,4): message : see reference to function template instantiation 'int Matrix<double>::numrows(void) const' being compiled
-  Generating Code...
-test_matrix.obj : error LNK2005: main already defined in init_list.obj
-C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\x64\Debug\Exercise_2.exe : fatal error LNK1169: one or more multiply defined symbols found
+  Exercise_2.vcxproj -> C:\Users\entei\OneDrive - Aarhus universitet\3. Semester\DOA\DOA Exercises\Week_3-4_ElementaryDataStructsAndTheirProccessing\Week_3-4\x64\Debug\Exercise_2.exe

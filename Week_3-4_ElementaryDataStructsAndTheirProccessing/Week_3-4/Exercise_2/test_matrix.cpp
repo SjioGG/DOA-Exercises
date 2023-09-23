@@ -34,6 +34,7 @@ int main(void) {
 	cout << "id =" << endl << id << endl;
 	Matrix<double>& mult = multiply(mat, id);
 	cout << "mult=" << endl << mult << endl;
-
+	mat.transpose();
+	cout << "transpose=" << endl << mat << endl;
 	delete &mult;
 }
