@@ -65,11 +65,20 @@ public:
 
         int index = key % size;
         int step = 1;
+        int indexOG = index;
 
         while (table[index].first != -1) {
             // Quadratic probing: Move quadratically to the next slot until an empty slot is found.
-            index = (index + step * step) % size;
-            step++;
+            if (step >= 2) {
+                index = (indexOG + step * step) % size;
+                step++;
+            }
+
+            else {
+                index = (index + step * step) % size;
+                step++;
+            }
+
         }
 
         table[index] = std::make_pair(key, value);

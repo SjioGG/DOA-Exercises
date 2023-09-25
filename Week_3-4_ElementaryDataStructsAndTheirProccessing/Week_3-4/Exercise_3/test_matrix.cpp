@@ -10,7 +10,7 @@ using namespace std;
 
 int main(void) {
 	Matrix<double> mat(ROWS, COLS), id(COLS, COLS);
-	Matrix<int> nnmatrix(100, 100);
+	Matrix<int> nnmatrix(10, 10);
 	srand(time(0));
 
 	for (int i = 0; i < COLS; i++) id[i][i] = 1; // intialize id
@@ -37,7 +37,7 @@ int main(void) {
 	cout << "mult=" << endl << mult << endl;
 	mat.transpose();
 	cout << "transpose=" << endl << mat << endl;
-	bool x = nnmatrix.isNumberInMatrix(20);
-	cout << "isNumberInMatrix=" << endl << nnmatrix << endl;
+	bool x = nnmatrix.isNumberInMatrix(98);
+	cout << "isNumberInMatrix=" << endl << x << endl;
 	delete &mult;
 }

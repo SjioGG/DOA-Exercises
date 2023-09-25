@@ -34,12 +34,13 @@ void Matrix<Object>::transpose() {
 
 template <typename Object>
 bool Matrix<Object>::isNumberInMatrix(Object x) {
-    int row = 0;  // Start from the top-left corner
-    int col = 0;  // Start from the right-most column
-    int k = 0; // Value of elements
+    int row = 0;  // Start from the top-left corner (INDEX)
+    int col = 0;  // Start from the left-most column (INDEX)
+    int valueData = 0; // Value of elements
+    // Fill NxN matrix with "n+1"
     while (row < numrows() && col < numcols()) {
-        array[row][col] = k++;
-        if(col == numcols()){
+        array[row][col] = valueData++;
+        if(col == numcols() -1 ){
             row++;
             col = 0;
         }
@@ -47,13 +48,15 @@ bool Matrix<Object>::isNumberInMatrix(Object x) {
             col++;
     }
 
-    row, col = 0;
+    // reset indecies
+    row = 0; 
+    col = 0;
 
     while (row < numrows() && col < numcols()) {
         if (array[row][col] == x) {
             return true;  // Found the number
         } 
-        else if(col==numcols()) {  // If the current element is equal to 'x', then it must be in the last column
+        else if(col==numcols() -1) {
             row++;
             col = 0;
         }
