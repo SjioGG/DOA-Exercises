@@ -18,6 +18,15 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="matrix_class.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="matrix_class.tpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="test_matrix.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
     <Keyword>Win32Proj</Keyword>
