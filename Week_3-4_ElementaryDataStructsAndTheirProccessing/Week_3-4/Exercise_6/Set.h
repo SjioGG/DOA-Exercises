@@ -21,24 +21,24 @@ public:
     }
 
     void insert(Object x) {
-        List<Object> temp;
-
-        if (!contains(x)) {  // Check if the element is not already in the list
-            int i = 0;
-
-            // Find the correct position to insert x
+        List<Object>* temp = new List<Object>; // Temporary list to hold elements to keep
+        int i = 0;
+        if (!contains(x)) { // Check if the element is not already in the set
             while (i < list->size() && list->find_kth(i) <= x) {
-                temp.push_back(list->pop_front());
+                temp->push_front(list->pop_front()); // pop the lowest elemetns of list and store them in temp
                 i++;
             }
 
-            list->push_back(x);
+            list->push_front(x); // push element into where it belongs
 
-            // Push the remaining elements from temp back into the list
-            while (!temp.empty()) 
-            {
-                list->push_back(temp.pop_front());
-            }       
+            while (!temp->empty()) {
+                list->push_front(temp->pop_back()); // push the highest to lowest element on to the Set
+            }
+            delete temp;
+        }
+        else if (list->empty())
+        {
+            list->push_front(x);
         }
     }
 
