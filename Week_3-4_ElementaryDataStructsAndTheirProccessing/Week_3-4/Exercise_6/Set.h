@@ -24,9 +24,8 @@ public:
         List<Object>* temp = new List<Object>; // Temporary list to hold elements to keep
         int i = 0;
         if (!contains(x)) { // Check if the element is not already in the set
-            while (i < list->size() && list->find_kth(i) <= x) {
+            while (!list->empty() && list->find_kth(i) <= x) {
                 temp->push_front(list->pop_front()); // pop the lowest elemetns of list and store them in temp
-                i++;
             }
 
             list->push_front(x); // push element into where it belongs
