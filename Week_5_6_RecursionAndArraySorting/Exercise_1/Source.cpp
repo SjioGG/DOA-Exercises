@@ -31,7 +31,7 @@ void recursive_minmax(const T *arr, int size, T &min, T &max)
 int main()
 {
     int arr[] = {3, 5, 2, 8, 1, 9, 4, 7, 6};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    int size = sizeof(arr) / sizeof(arr[0]); // divide the size of an array spot with the size of the array to get an actual int.
 
     // search for element 5
     if (recursive_search(arr, size, 5))
