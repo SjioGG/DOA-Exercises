@@ -50,7 +50,7 @@ void counting_sort(vector<int> &A) // sorts a vector using counting sort
     vector<int> result(A.size());
     for (int i = A.size() - 1; i >= 0; i--)
     {
-        result[counting[A[i]] - 1] = A[i];
+        result[counting[A[i]] - 1] = A[i]; // place each element in its correct position in the result vector
         counting[A[i]]--;
     }
     A = result;
