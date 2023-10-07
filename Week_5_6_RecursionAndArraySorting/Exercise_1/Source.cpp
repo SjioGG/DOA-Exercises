@@ -24,7 +24,7 @@ void recursive_minmax(const T *arr, int size, T &min, T &max)
         return;
     }
     recursive_minmax(arr, size - 1, min, max);
-    min = std::min(min, arr[size - 1]); // these are from algos lib. Dunno if we are alot to use.
+    min = std::min(min, arr[size - 1]);
     max = std::max(max, arr[size - 1]);
 }
 
