@@ -38,13 +38,13 @@ bool searchMaze(char maze[ROWS][COLS], int row, int col)
 int main()
 {
     char maze[ROWS][COLS] = {
-        {'X', 'X', 'X', 'X', 'X'},
-        {'X', 'X', ' ', ' ', 'X'},
-        {'X', ' ', ' ', ' ', 'X'},
-        {'X', ' ', ' ', ' ', ' '},
-        {'X', 'E', 'X', 'X', ' '}};
+        {' ', 'X', 'X', 'X', 'X'},
+        {' ', ' ', 'X', 'X', 'X'},
+        {'X', ' ', ' ', 'X', 'X'},
+        {'X', ' ', ' ', 'X', 'X'},
+        {'X', 'E', 'X', 'X', 'X'}};
 
-    if (searchMaze(maze, 4, 4)) // zero indexed
+    if (searchMaze(maze, 1, 1)) // zero indexed starting point
     {
         std::cout << "Path found!" << std::endl;
     }
