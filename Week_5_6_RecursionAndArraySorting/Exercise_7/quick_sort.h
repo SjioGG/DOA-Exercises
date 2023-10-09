@@ -52,18 +52,15 @@ int partition(vector<Comparable> &a, int left, int right)
 template <typename Comparable>
 void quickSort(vector<Comparable> &a, int left, int right)
 {
-	if (right - left > 1)
+	if (right - left <= useInsertion)
+	{
+		insertionSort(a);
+	}
+	else
 	{
 		int i = partition(a, left, right);
 		quickSort(a, left, i - 1);	// Sort small elements
 		quickSort(a, i + 1, right); // Sort large elements
-	}
-	else
-	{ // Do an insertion sort on the subarray
-		if (a[left] > a[right])
-		{
-			std::swap(a[left], a[right]);
-		}
 	}
 }
 
@@ -74,20 +71,5 @@ template <typename Comparable>
 void quickSort(vector<Comparable> &a)
 {
 	quickSort(a, 0, a.size() - 1);
-}
-
-template <typename Comparable>
-void introSort(vector<Comparable> &a)
-{
-	// assert(!a.empty()); // Check that the input vector is not empty
-	if (a.size() < useInsertion)
-	{
-		insertionSort(a);
-	}
-	else
-	{
-		quickSort(a);
-	}
-	// assert(std::is_sorted(a.begin(), a.end())); // Verify that the array is sorted
 }
 #endif

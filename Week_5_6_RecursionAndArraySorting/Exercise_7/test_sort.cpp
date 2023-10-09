@@ -2,7 +2,9 @@
 #include <vector>
 #include "sort.h"
 #include <time.h>
+#include <chrono>
 
+using namespace std::chrono;
 using namespace std;
 
 void checkSort(const vector<int> &a)
@@ -28,7 +30,7 @@ void permute(vector<AnyType> &a)
 
 int main()
 {
-	const int NUM_ITEMS = 1000;
+	const int NUM_ITEMS = 500000;
 
 	vector<int> a(NUM_ITEMS);
 	for (int i = 1; i < a.size(); ++i)
@@ -36,14 +38,14 @@ int main()
 		a[i] = a[i - 1] + 'a';
 	}
 
-	for (int theSeed = 0; theSeed < 10; ++theSeed)
-	{
-		srand(time(0) + theSeed);
+	srand(time(0) + 1);
 
-		permute(a);
-		introSort(a);
-		checkSort(a);
-	}
-
+	permute(a);
+	auto start = high_resolution_clock::now();
+	quickSort(a);
+	auto stop = high_resolution_clock::now();
+	checkSort(a);
+	auto duration = duration_cast<milliseconds>(stop - start);
+	cout << "Sorting took " << duration.count() << " milliseconds." << endl;
 	return 0;
 }
