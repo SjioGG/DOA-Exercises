@@ -63,18 +63,15 @@ int main()
     }
     srand(time(0) + 1); // seeds the random number generator with the current time plus the seed value
     permute(a);
-    for (int i = 0; i < a.size(); ++i)
-    {
-        cout << a[i] << " ";
-    }
     insertionSort(a);
     checkSort(a);
-    // Measure execution time
+    //  Measure execution time
     auto start = high_resolution_clock::now();
     selectionSort(a);
     auto stop = high_resolution_clock::now();
     // Calculate and print the execution time
     auto duration = duration_cast<milliseconds>(stop - start);
+    checkSort(a);
     cout << "Sorting took " << duration.count() << " milliseconds." << endl;
 
     return 0;
