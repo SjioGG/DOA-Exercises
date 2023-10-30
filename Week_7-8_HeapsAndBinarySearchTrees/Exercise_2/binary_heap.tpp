@@ -37,7 +37,7 @@ template <typename Comparable>
 const Comparable &BinaryHeap<Comparable>::findMax() const
 {
     if (isEmpty())
-        throw underflow_error{};
+        throw std::underflow_error("heap is empty.");
     int maxIndex = 1;
     for (int i = 2; i <= currentSize; ++i)
     {

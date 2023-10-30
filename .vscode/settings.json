@@ -53,6 +53,7 @@
     "xtree": "cpp",
     "xutility": "cpp",
     "chrono": "cpp",
-    "queue": "cpp"
+    "queue": "cpp",
+    "*.tpp": "cpp"
   }
 }

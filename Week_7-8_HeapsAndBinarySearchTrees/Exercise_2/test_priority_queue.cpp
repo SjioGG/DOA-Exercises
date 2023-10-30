@@ -3,7 +3,7 @@
 #include <queue>
 #include <functional>
 #include <string>
-// #include "PriorityQueue.cpp"
+#include "PriorityQueue.h"
 using namespace std;
 
 // Empty the priority queue and print its contents.
@@ -18,21 +18,33 @@ void dumpContents(const string &msg, PriorityQueue &pq)
     }
 }
 
-// Do some inserts and removes (done in dumpContents).
 int main()
 {
-    priority_queue<int> maxPQ;
-    priority_queue<int, vector<int>, greater<int>> minPQ;
+    PriorityQueue<int> maxPQ;
 
-    minPQ.push(4);
-    minPQ.push(3);
-    minPQ.push(5);
     maxPQ.push(4);
     maxPQ.push(3);
     maxPQ.push(5);
 
-    dumpContents("minPQ", minPQ);
     dumpContents("maxPQ", maxPQ);
-
     return 0;
 }
+
+// Do some inserts and removes (done in dumpContents).
+//  int main()
+// {
+//     priority_queue<int> maxPQ;
+//     priority_queue<int, vector<int>, greater<int>> minPQ;
+
+//     minPQ.push(4);
+//     minPQ.push(3);
+//     minPQ.push(5);
+//     maxPQ.push(4);
+//     maxPQ.push(3);
+//     maxPQ.push(5);
+
+//     dumpContents("minPQ", minPQ);
+//     dumpContents("maxPQ", maxPQ);
+
+//     return 0;
+// }
