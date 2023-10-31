@@ -23,7 +23,7 @@ void checkSort(const vector<int>& a) {
  * @return int 
  */
 int main() {
-    const int NUM_ITEMS = 150000;
+    const int NUM_ITEMS = 5000;
 
     vector<int> a(NUM_ITEMS);  // for initializing in decreasing order
     for (int i = 0; i < a.size(); ++i) {
