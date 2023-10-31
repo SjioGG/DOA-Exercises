@@ -15,7 +15,19 @@ public:
 
 	~Set() { clear(); }
 
-	Set(const Set &s) : theSize{s.theSize}, tree{s.tree} {}
+	Set(const Set &s) : theSize(s.theSize), tree()
+	{
+		// Create an iterator to traverse the source set
+		iterator it = s.begin();
+		iterator end = s.end();
+
+		// Iterate over the source set and insert its elements into the new set
+		while (it != end)
+		{
+			insert(*it);
+			++it;
+		}
+	}
 
 	void clear()
 	{
@@ -30,7 +42,10 @@ public:
 
 	bool empty() const
 	{
-		return theSize() == 0;
+		if (theSize == 0)
+			return true;
+		else
+			return false;
 	}
 
 	void push(const Comparable &t)
@@ -38,12 +53,14 @@ public:
 		insert(t);
 	}
 
+	void print() { tree.printTree(); } // used for debugging
+
 	friend class BinarySearchTree<Comparable>;
 	typedef typename BinarySearchTree<Comparable>::iterator iterator;
 
 	iterator begin() const
 	{
-		return iterator(tree.findMin());
+		return tree.findMin();
 	}
 
 	iterator end() const
@@ -53,26 +70,22 @@ public:
 
 	iterator insert(const Comparable &t)
 	{
-		iterator itr = find(t);
-		if (itr == end())
+		if (tree.contains(t) == false)
 		{
-			tree.insert(t);
 			++theSize;
+			tree.insert(t);
 		}
-		return itr;
+		return iterator(tree.find(t));
 	}
 
 	iterator find(const Comparable &t)
 	{
 		return iterator(tree.find(t));
 	}
-
 	iterator erase(iterator &itr)
 	{
-		iterator ret = itr;
-		++ret;
-		tree.remove(*itr);
-		--theSize;
-		return ret;
+		tree.remove(*itr); // Remove the element using its stored value
+		--theSize;		   // Decrease the size of the set
+		return itr;		   // Returns uninitialized iterator, they didint specify
 	}
 };

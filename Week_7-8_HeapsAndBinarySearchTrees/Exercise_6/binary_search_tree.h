@@ -31,20 +31,19 @@ private:
      * Set the new root of the subtree.
      */
 
-    BinaryNode *
-    insert(const Comparable &x, BinaryNode *&t, BinaryNode *parent)
+    BinaryNode *insert(const Comparable &x, BinaryNode *&t, BinaryNode *parent)
     {
         if (t == nullptr)
         {
-            t = new BinaryNode{x, nullptr, nullptr, parent};
+            t = new BinaryNode{x, nullptr, nullptr, parent}; // Set the parent pointer to the provided parent
             return t;
         }
         else
         {
             if (x < t->element)
-                return insert(x, t->left);
+                return insert(x, t->left, t); // Pass t as the parent to the left subtree
             else if (t->element < x)
-                return insert(x, t->right);
+                return insert(x, t->right, t); // Pass t as the parent to the right subtree
             else
             {
                 return t;
@@ -163,7 +162,7 @@ private:
         if (t == nullptr)
             return nullptr;
         else
-            return new BinaryNode{t->element, clone(t->left), clone(t->right)};
+            return new BinaryNode{t->element, clone(t->left), clone(t->right), t->parent};
     }
 
 public:
@@ -207,26 +206,31 @@ public:
 
         iterator &operator++()
         {
-
-            if (node->right != nullptr) // if there is a right child, go to the leftmost child of the right child
+            if (node != nullptr)
             {
-                node = node->right;           // go to right child
-                while (node->left != nullptr) // go to leftmost child
+                if (node->right != nullptr)
                 {
-                    node = node->left; // go to left child
+                    node = node->right;
+                    while (node->left != nullptr)
+                    {
+                        node = node->left;
+                    }
+                }
+                else
+                {
+                    BinaryNode *p = node->parent;
+                    while (p != nullptr && node == p->right)
+                    {
+                        node = p;
+                        p = p->parent;
+                    }
+                    node = p;
                 }
             }
             else
             {
-                BinaryNode *p = node->parent;            // go to parent
-                while (p != nullptr && node == p->right) // go up until we are on the left side of the parent
-                {
-                    node = p
-                        p = p->parent;
-                }
-                node = p; // go to parent (if it is nullptr, we are done)
+                node = nullptr;
             }
-
             return *this;
         }
 

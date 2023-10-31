@@ -67,7 +67,7 @@ int main()
 
 	for (Set<int>::iterator it = set2.begin(); it != set2.end(); it++)
 	{
-		cout << *it << ' ';
+		cout << *it << ' '; // prints unit
 	}
 	cout << endl;
 }

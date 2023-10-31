@@ -58,7 +58,7 @@ const typename BinarySearchTree<Comparable>::iterator BinarySearchTree<Comparabl
 template <typename Comparable>
 typename BinarySearchTree<Comparable>::iterator BinarySearchTree<Comparable>::insert(const Comparable &x)
 {
-	return iterator(insert(x, root, parent));
+	return iterator(insert(x, root, nullptr));
 }
 
 template <typename Comparable>
