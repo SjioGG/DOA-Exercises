@@ -119,6 +119,44 @@ void Graph::dijkstra(int s, vector < int >&path, vector < int >&dist) {
 	}
 }
 
+void Graph::dijkstra_early_exit(int s, int target, vector<int>& path, vector<int>& dist) {
+    struct pair_comp {
+        constexpr bool operator()(pair<int, int> const& a, pair<int, int> const& b) const noexcept {
+            return a.first > b.first;
+        }
+    };
+    priority_queue<pair<int, int>, vector<pair<int, int>>, pair_comp> q;
+    vector<bool> visited(adj.size());
+
+    for (int v = 0; v < adj.size(); ++v) {
+        dist[v] = INFINITY;
+        visited[v] = false;
+        path[v] = -1;
+    }
+    dist[s] = 0;
+    q.push(make_pair(dist[s], s));
+
+    while (!q.empty()) {
+        int u = q.top().second;
+        q.pop();
+        visited[u] = true;
+
+        if (u == target) {
+            // Early exit when the target vertex is reached
+            break;
+        }
+
+        for (auto v : adj[u]) {
+            if (!visited[v] && dist[u] != INT_MAX && dist[u] + weight[u][v] < dist[v]) {
+                dist[v] = dist[u] + weight[u][v];
+                path[v] = u;
+                q.push(make_pair(dist[v], v));
+            }
+        }
+    }
+}
+
+
 
 
 void Graph::dijkstra_nopq(int s, vector < int >&path, vector < int >&dist) {

@@ -52,6 +52,7 @@ class Graph {
 	 */
 	void dijkstra(int s, vector<int>& path, vector<int>& dist);
 	void dijkstra_nopq(int s, vector<int> &path, vector<int> &dist);
+	void dijkstra_early_exit(int s, int target, vector<int>& path, vector<int>& dist);
 	/**
 	 * Compute all-shortest paths.
 	 * dist contains the values of the shortest path.

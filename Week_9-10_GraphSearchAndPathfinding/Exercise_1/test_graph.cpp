@@ -48,7 +48,19 @@ int main() {
 		cout << "Distance from 0 to " << i << " is " << dist[i] << endl;
 	}
 	cout << digraph.connectedComponents() << " connected component(s)" << endl;
+	int start = 0;
+	int target = 5;
+	digraph.dijkstra_early_exit(start,target,path,dist);
+	cout << "Our Implementation: " << endl;
+	for (int v = target; v != -1; v = path[v])
+	{
+		cout << v;
+		if (v != start)
+			cout << " <- ";
+	}
+	cout << endl;
 
+	cout << "Shortest Distance: " << dist[target] << endl;
 	Matrix<int> dists(7, 7);
 	Matrix<int> paths(7, 7);
 	digraph.allPairs(paths, dists);
