@@ -71,6 +71,6 @@ public:
 
 	int kruskalMST();
 	int primMST();
-	int bellmanFord(int s, vector<int> &path, vector<int> &dist);
+	void bellmanFord(int s, vector<int> &path, vector<int> &dist);
 	void print();
 };

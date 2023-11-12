@@ -348,7 +348,7 @@ int Graph::primMST() // Prim's algorithm
 	return mst_wt;
 }
 
-int Graph::bellmanFord(int s, vector<int> &path, vector<int> &dist) // Bellman-Ford algorithm
+void Graph::bellmanFord(int s, vector<int> &path, vector<int> &dist) // Bellman-Ford algorithm
 {
 	int n = adj.size(); // number of vertices
 	for (int i = 0; i < n; i++)
@@ -373,13 +373,13 @@ int Graph::bellmanFord(int s, vector<int> &path, vector<int> &dist) // Bellman-F
 		}
 	}
 
-	for (int u = 0; u < n; u++) // check for negative-weight cycles
+	for (int u = 0; u < n; u++)
 	{
 		for (auto v : adj[u]) // update distances
 		{
 			if (dist[u] != INFINITY && dist[u] + weight[u][v] < dist[v])
 			{
-				return 0;
+				break;
 			}
 		}
 	}
