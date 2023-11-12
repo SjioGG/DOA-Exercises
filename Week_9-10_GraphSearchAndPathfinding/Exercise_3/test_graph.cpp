@@ -51,7 +51,7 @@ int main()
 		cout << "Distance from 0 to " << i << " is " << dist[i] << endl;
 	}
 	cout << digraph.connectedComponents() << " connected component(s)" << endl;
-	/*-------------Our Implementation of Djikstra w/ early exit:-------------*/
+
 	int start = 0;
 	int target = 5;
 	digraph.dijkstra_early_exit(start, target, path, dist);
@@ -63,8 +63,45 @@ int main()
 			cout << " <- ";
 	}
 	cout << endl;
+
 	cout << "Shortest Distance: " << dist[target] << endl;
-	/*-------------------------JOWARI DESU------------------------*/
+	/********************SOLUTION************************/
+	Graph exampleA(8);
+	path.resize(8);
+	dist.resize(8);
+	exampleA.addWeightedEdge(0, 1, 3);
+	exampleA.addWeightedEdge(0, 2, 6);
+	exampleA.addWeightedEdge(1, 4, 11);
+	exampleA.addWeightedEdge(1, 3, 4);
+	exampleA.addWeightedEdge(1, 2, 4);
+	exampleA.addWeightedEdge(2, 3, 8);
+	exampleA.addWeightedEdge(2, 6, 11);
+	exampleA.addWeightedEdge(3, 4, -4);
+	exampleA.addWeightedEdge(3, 5, 5);
+	exampleA.addWeightedEdge(3, 6, 2);
+	exampleA.addWeightedEdge(4, 7, 9);
+	exampleA.addWeightedEdge(5, 7, 1);
+	exampleA.addWeightedEdge(6, 7, 2);
+
+	vector<int> topOrder = exampleA.topologicalSortModified(0);
+	exampleA.dijkstraOnDAG(0, path, dist, topOrder);
+	exampleA.topologicalSort(0);
+	// Print the shortest distances from the start node to all other nodes
+	cout << "Shortest Distances from Node " << 0 << ":\n";
+	for (int i = 0; i < topOrder.size(); ++i)
+	{
+		cout << "To Node " << i << ": " << dist[i] << endl;
+	}
+
+	for (int v = 7; v != -1; v = path[v])
+	{
+		cout << v;
+		if (v != start)
+			cout << " <- ";
+	}
+	cout << endl;
+	/********************SOLUTION END************************/
+
 	Matrix<int> dists(7, 7);
 	Matrix<int> paths(7, 7);
 	digraph.allPairs(paths, dists);
