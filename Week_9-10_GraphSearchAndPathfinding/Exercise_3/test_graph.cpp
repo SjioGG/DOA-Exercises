@@ -85,9 +85,14 @@ int main()
 
 	vector<int> topOrder = exampleA.topologicalSortModified(0);
 	exampleA.dijkstraOnDAG(0, path, dist, topOrder);
-	exampleA.topologicalSort(0);
 	// Print the shortest distances from the start node to all other nodes
-	cout << "Shortest Distances from Node " << 0 << ":\n";
+	cout << "Topological order: " << endl;
+	for (int i = 0; i < topOrder.size(); ++i)
+	{
+		cout << topOrder[i] << " ";
+	}
+	cout << "\n"
+		 << "Shortest Distances from Node " << 0 << ":\n";
 	for (int i = 0; i < topOrder.size(); ++i)
 	{
 		cout << "To Node " << i << ": " << dist[i] << endl;
