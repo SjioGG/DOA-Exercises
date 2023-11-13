@@ -62,7 +62,7 @@ private:
 	// Square grid graph types and methods
 	int width, height;
 
-	array<GridLocation, 4> grid_dirs = {
+	vector<GridLocation> grid_dirs = { // changed array -> vector, y'all fucked up
 		/* East, West, North, South */
 		GridLocation{1, 0}, GridLocation{-1, 0},
 		GridLocation{0, -1}, GridLocation{0, 1}};
@@ -103,7 +103,7 @@ public:
 	/**
 	 * Constructor for 4-way grids of width x heigth. All locations are
 	 * implicitly connected in the grid, so the constructor only needs to
-	 * store width and heigth. Only by adding walls (grid_add_wall) are
+	 * store widt and heigth. Only by adding walls (grid_add_wall) are
 	 * conections 'broken'
 	 */
 	Graph(int width, int height) : width(width), height(height) {}

@@ -88,8 +88,19 @@ vector<GridLocation> Graph::grid_reconstruct_path(
 	unordered_map<GridLocation, GridLocation> came_from)
 {
 	vector<GridLocation> path;
+	GridLocation current = goal;
 
-	// TO BE IMPLEMENTED
+	while (current != start)
+	{
+		path.push_back(current);
+		current = came_from[current];
+	}
+
+	// Add the start location
+	path.push_back(start);
+
+	// Reverse the path since we constructed it from goal to start
+	reverse(path.begin(), path.end());
 
 	return path;
 }
@@ -98,6 +109,35 @@ void Graph::a_star(GridLocation start, GridLocation goal,
 				   unordered_map<GridLocation, GridLocation> &came_from,
 				   unordered_map<GridLocation, double> &cost_so_far)
 {
+	// Priority queue to store locations and prioritize based on total cost
+	priority_queue<pair<double, GridLocation>, vector<pair<double, GridLocation>>, greater<pair<double, GridLocation>>> frontier;
 
-	// TO BE IMPLEMENTED
+	// Initialize the start node
+	frontier.push({0, start});
+	came_from[start] = start;
+	cost_so_far[start] = 0;
+
+	while (!frontier.empty())
+	{
+		auto current = frontier.top().second;
+		frontier.pop();
+
+		if (current == goal)
+		{
+			break; // Goal reached, it seems our assumptions from exercise 4 was wrong, it does check it.
+		}
+
+		for (GridLocation next : grid_neighbors(current))
+		{
+			double new_cost = cost_so_far[current] + 1;
+
+			if (!cost_so_far.count(next) || new_cost < cost_so_far[next])
+			{
+				cost_so_far[next] = new_cost;
+				double priority = new_cost + heuristic(next, goal);
+				frontier.push({priority, next});
+				came_from[next] = current;
+			}
+		}
+	}
 }
