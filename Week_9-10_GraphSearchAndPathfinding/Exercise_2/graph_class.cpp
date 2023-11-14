@@ -373,15 +373,23 @@ void Graph::bellmanFord(int s, vector<int> &path, vector<int> &dist) // Bellman-
 		}
 	}
 
+	// Check for negative weight cycles
+	bool negativeCycleDetected = false;
 	for (int u = 0; u < n; u++)
 	{
 		for (auto v : adj[u]) // update distances
 		{
 			if (dist[u] != INFINITY && dist[u] + weight[u][v] < dist[v])
 			{
+				negativeCycleDetected = true;
 				break;
 			}
 		}
+	}
+
+	if (negativeCycleDetected)
+	{
+		cout << "Negative weight cycle detected." << endl;
 	}
 }
 
